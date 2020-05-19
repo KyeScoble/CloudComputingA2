@@ -7,6 +7,15 @@ div#controls
     padding: 60px;
 }
 
+table#btnTable{
+	margin-left:-45;
+	margin-right:auto;
+	width:30%;
+	border-spacing:20px 20px;
+	text-align:center;
+}
+
+
 .btnStyle
 {
 	box-shadow:inset 0px 1px 0px 0px #e184f3;
