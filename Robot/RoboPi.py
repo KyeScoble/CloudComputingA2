@@ -77,9 +77,9 @@ def on_message(client, userdata, msg):
     if msg.topic == "pi/receive" and str(msg.payload) == "b'right'":
         right()
     if msg.topic == "pi/receive" and str(msg.payload) == "b'leftN'":
-        leftN(1)
+        leftN(0.4)
     if msg.topic == "pi/receive" and str(msg.payload) == "b'rightN'":
-        rightN(1)
+        rightN(0.4)
     
 
 
