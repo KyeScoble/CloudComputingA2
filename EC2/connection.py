@@ -37,6 +37,7 @@ client = mqtt.Client("python1")             #create new instance
 client.username_pw_set("khnpnwap","OV4PZj_k9oBG")
 client.connect("tailor.cloudmqtt.com",13828,60)      #connect to broker
 client.on_connect=on_connect  #bind call back function
+client.on_message = on_message
 client.loop_start()
 while not client.connected_flag: #wait in loop
     print("In wait loop")
