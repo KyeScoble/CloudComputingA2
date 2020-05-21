@@ -2,27 +2,27 @@
 import paho.mqtt.client as mqtt  #import the client1
 import time
 
+
+
+
+
 #forward: pass forward message to raspberry pi
-if msg.topic == "website/push" and str(msg.payload) == "b'Forward'":
-    client.publish("pi/receive","forward")
+def on_message(client, userdata, msg):
+    print(msg.topic)
+    print(str(msg.payload))
+    if msg.topic == "website/push" and str(msg.payload) == "b'Forward'":client.publish("pi/receive","forward")
 
-if msg.topic == "website/push" and str(msg.payload) == "b'Backwards'":
-    client.publish("pi/receive","backward")
+    if msg.topic == "website/push" and str(msg.payload) == "b'Backwards'":client.publish("pi/receive","backward")
 
-if msg.topic == "website/push" and str(msg.payload) == "b'Left'":
-    client.publish("pi/receive","left")
+    if msg.topic == "website/push" and str(msg.payload) == "b'Left'":client.publish("pi/receive","left")
 
-if msg.topic == "website/push" and str(msg.payload) == "b'Right'":
-    client.publish("pi/receive","right")
+    if msg.topic == "website/push" and str(msg.payload) == "b'Right'":client.publish("pi/receive","right")
 
-if msg.topic == "website/push" and str(msg.payload) == "b'Stop'":
-    client.publish("pi/receive","stop")
+    if msg.topic == "website/push" and str(msg.payload) == "b'Stop'":client.publish("pi/receive","stop")
 
-if msg.topic == "website/push" and str(msg.payload) == "b'LeftN'":
-    client.publish("pi/receive","leftN")
+    if msg.topic == "website/push" and str(msg.payload) == "b'LeftN'":client.publish("pi/receive","leftN")
 
-if msg.topic == "website/push" and str(msg.payload) == "b'RightN'":
-    client.publish("pi/receive","rightN")
+    if msg.topic == "website/push" and str(msg.payload) == "b'RightN'":client.publish("pi/receive","rightN")
 
 def on_connect(client, userdata, flags, rc):
     if rc==0:
@@ -36,12 +36,12 @@ mqtt.Client.connected_flag=False#create flag in class
 client = mqtt.Client("python1")             #create new instance
 client.username_pw_set("khnpnwap","OV4PZj_k9oBG")
 client.connect("tailor.cloudmqtt.com",13828,60)      #connect to broker
-client.on_connect=on_connect  #bind call back function
-client.on_message = on_message
-client.loop_start()
-while not client.connected_flag: #wait in loop
-    print("In wait loop")
-    time.sleep(1)
-print("in Main Loop")
-client.loop_stop()    #Stop loop
-client.disconnect() # disconnect
+client.on_connect=on_connect
+client.on_message=on_message  #bind call back function
+client.loop_forever()
+# while not client.connected_flag: #wait in loop
+#     print("In wait loop")
+#     time.sleep(1)
+# print("in Main Loop")
+#client.loop_stop()    #Stop loop
+#client.disconnect() # disconnect
