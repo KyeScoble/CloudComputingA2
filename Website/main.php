@@ -29,14 +29,14 @@
     mqtt.send(message);
   }
 
-  function Left90() {
-  message = new Paho.MQTT.Message("Left90");
+  function LeftN() {
+  message = new Paho.MQTT.Message("LeftN");
   message.destinationName = "website/push";
   mqtt.send(message);
   }
 
-  function Right90() {
-  message = new Paho.MQTT.Message("Right90");
+  function RightN() {
+  message = new Paho.MQTT.Message("RightN");
   message.destinationName = "website/push";
   mqtt.send(message);
   }
@@ -71,13 +71,13 @@
   mqtt.send(message);
   }
 
-  function Left180() {
-  message = new Paho.MQTT.Message("Left180");
+  function LeftO() {
+  message = new Paho.MQTT.Message("LeftO");
   message.destinationName = "website/push";
   mqtt.send(message);
   }
-  function Right180() {
-  message = new Paho.MQTT.Message("Right180");
+  function RightO() {
+  message = new Paho.MQTT.Message("RightO");
   message.destinationName = "website/push";
   mqtt.send(message);
   }
@@ -115,19 +115,19 @@
 <form id="#form" name="#form">
   <table id="btnTable">
 <tr>
-  <td><button class = "btnStyle"id="rotateL" name="rotateL" onClick="Left90()" value="rotateL">&#8630;</button></td>
-  <td><button class = "btnStyle"id="up" name="btnUp" onClick="Forward()" value="up">^</button></td>
-  <td><button class = "btnStyle"id="rotateR" name="rotateR" onClick="Right90()" value="rotateR">&#8631;</button></td>
+  <td><button class = "btnStyle"id="rotateL" name="rotateL" onClick="LeftN()">&#8630;</button></td>
+  <td><button class = "btnStyle"id="up" name="btnUp" onClick="Forward()">^</button></td>
+  <td><button class = "btnStyle"id="rotateR" name="rotateR" onClick="RightN()">&#8631;</button></td>
 </tr></br>
 <tr>
-  <td><button class = "btnStyle" id="left" name="btnLeft" onClick="Left()" value="left"><</button></td>
-  <td><button class = "btnStyle" id="stop" name="btnStop" onClick="Stop()" value="stop">o</button></td>
-  <td><button class = "btnStyle" id="right" name="btnRight" onClick="Right()" value="right">></button></td>
+  <td><button class = "btnStyle" id="left" name="btnLeft" onClick="Left()"><</button></td>
+  <td><button class = "btnStyle" id="stop" name="btnStop" onClick="Stop()">o</button></td>
+  <td><button class = "btnStyle" id="right" name="btnRight" onClick="Right()">></button></td>
 </tr></br>
 <tr>
-  <td><button class = "btnStyle"id="rotateL2" name="rotateL2" onClick="Left180()" value="rotateL2">&#8634;</button></td>
-  <td><button class = "btnStyle" id="down" name="btnDown" onClick="Backwards()" value="down">V</button></td>
-  <td><button class = "btnStyle"id="rotateR2" name="rotateR2" onClick="Right180()" value="rotateR2">&#8635;</button></td>
+  <td><button class = "btnStyle"id="rotateL2" name="rotateL2" onClick="LeftO()">&#8634;</button></td>
+  <td><button class = "btnStyle" id="down" name="btnDown" onClick="Backwards()">V</button></td>
+  <td><button class = "btnStyle"id="rotateR2" name="rotateR2" onClick="RightO()">&#8635;</button></td>
 </tr>
 </table>
 
