@@ -3,10 +3,7 @@ import paho.mqtt.client as mqtt  #import the client1
 import sys,time
 import boto3
 
-s3 = boto3.resource('s3')
-BUCKET = "robotic-logs"
 
-s3.Bucket(BUCKET).upload_file("output.txt", "logs/output.txt")
 
 
 
@@ -55,6 +52,12 @@ def on_connect(client, userdata, flags, rc):
         print("connected OK") #written to log file
     else:
         print("Bad connection Returned code=",rc)
+
+
+s3 = boto3.resource('s3')
+BUCKET = "robotic-logs"
+
+s3.Bucket(BUCKET).upload_file("output.txt", "logs/output.txt")
 
         
 
