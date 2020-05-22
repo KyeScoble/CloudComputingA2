@@ -62,6 +62,7 @@ def rightN(tf):
 def on_connect(client, userdata, flags, rc):
     print("connected with result code {0}".format(str(rc)))
     client.subscribe("pi/receive")
+    client.publish("pi/push","piCS")
     
 def on_message(client, userdata, msg):
     print(msg.topic)
@@ -77,9 +78,13 @@ def on_message(client, userdata, msg):
     if msg.topic == "pi/receive" and str(msg.payload) == "b'right'":
         right()
     if msg.topic == "pi/receive" and str(msg.payload) == "b'leftN'":
-        leftN(0.4)
+        leftN(float(0.6))
     if msg.topic == "pi/receive" and str(msg.payload) == "b'rightN'":
-        rightN(0.4)
+        rightN(float(0.6))
+    if msg.topic == "pi/receive" and str(msg.payload) == "b'leftO'":
+        leftN(float(1))
+    if msg.topic == "pi/receive" and str(msg.payload) == "b'rightO'":
+        rightN(float(1))
     
 
 
