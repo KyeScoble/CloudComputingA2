@@ -1,10 +1,29 @@
 #!python3
 import paho.mqtt.client as mqtt  #import the client1
-import time
+import sys,time
+import boto3
+
+s3 = boto3.resource('s3')
+BUCKET = "robotic-logs"
+
+s3.Bucket(BUCKET).upload_file("output.txt", "logs/output.txt")
 
 
 
 
+class Logger(object):
+    def __init__(self, filename="Default.log"):
+        self.terminal = sys.stdout
+        self.log = open(filename, "a")
+
+    def write(self, message):
+        self.terminal.write(message)
+        self.log.write(message)
+
+    def __getattr__(self, attr):
+        return getattr(self.terminal, attr)
+
+sys.stdout = Logger("output.txt")
 
 #forward: pass forward message to raspberry pi
 def on_message(client, userdata, msg):
@@ -32,9 +51,12 @@ def on_connect(client, userdata, flags, rc):
     if rc==0:
         client.connected_flag=True #set flag
         client.subscribe("website/push")
-        print("connected OK")
+        print('\n')
+        print("connected OK") #written to log file
     else:
         print("Bad connection Returned code=",rc)
+
+        
 
 mqtt.Client.connected_flag=False#create flag in class
 client = mqtt.Client("python1")             #create new instance
