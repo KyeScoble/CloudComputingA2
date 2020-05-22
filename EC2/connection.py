@@ -23,7 +23,11 @@ def on_message(client, userdata, msg):
     if msg.topic == "website/push" and str(msg.payload) == "b'LeftN'":client.publish("pi/receive","leftN")
 
     if msg.topic == "website/push" and str(msg.payload) == "b'RightN'":client.publish("pi/receive","rightN")
-
+        
+    if msg.topic == "website/push" and str(msg.payload) == "b'RightO'":client.publish("pi/receive","rightO")
+    
+    if msg.topic == "website/push" and str(msg.payload) == "b'LeftO'":client.publish("pi/receive","leftO")
+        
 def on_connect(client, userdata, flags, rc):
     if rc==0:
         client.connected_flag=True #set flag
