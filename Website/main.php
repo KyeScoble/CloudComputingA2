@@ -58,10 +58,10 @@
  <script type = "text/javascript" language = "javascript">
     var mqtt;
     var reconnectTimeout = 2000;
-    var host="tailor.cloudmqtt.com"; //change this
-    var port= 33828;
-    var user="khnpnwap";
-    var pass="OV4PZj_k9oBG";
+    var host="url"; 
+    var port= port;
+    var user="username";
+    var pass="password";
 	
 	
 	
