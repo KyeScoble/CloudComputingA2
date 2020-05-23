@@ -91,8 +91,8 @@ def on_message(client, userdata, msg):
     
 
 client=mqtt.Client()
-client.username_pw_set("khnpnwap","OV4PZj_k9oBG")
-client.connect("tailor.cloudmqtt.com",13828,60)
+client.username_pw_set("username","password")
+client.connect("url", port,60)
 client.on_connect = on_connect
 client.on_message = on_message
 client.loop_forever()
