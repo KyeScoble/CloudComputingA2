@@ -63,8 +63,8 @@ s3.Bucket(BUCKET).upload_file("output.txt", "logs/output.txt")
 
 mqtt.Client.connected_flag=False#create flag in class
 client = mqtt.Client("python1")             #create new instance
-client.username_pw_set("khnpnwap","OV4PZj_k9oBG")
-client.connect("tailor.cloudmqtt.com",13828,60)      #connect to broker
+client.username_pw_set("username","password")
+client.connect("url", port,60)      #connect to broker
 client.on_connect=on_connect
 client.on_message=on_message  #bind call back function
 client.loop_forever()
