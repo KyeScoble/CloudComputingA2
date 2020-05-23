@@ -14,10 +14,10 @@
  <script type = "text/javascript" language = "javascript">
     var mqtt;
     var reconnectTimeout = 2000;
-    var host="tailor.cloudmqtt.com"; //change this
-    var port= 33828;
-    var user="khnpnwap";
-    var pass="OV4PZj_k9oBG";
+    var host="url"; //change this
+    var port= port;
+    var user="username";
+    var pass="password";
 
   function onConnect() {
   // Once a connection has been made, make a subscription and send a message.
