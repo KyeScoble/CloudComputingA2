@@ -12,10 +12,10 @@
   
   
 
- 
-  $file_content = "user" . $_SESSION['name']. "logged in at:" . $date;
+  $date = date('Y-m-d H:i:s');
+  $file_content = "user: " . $_SESSION['name']. " logged in at:" . $date . "\n";
   
-  $handle = fopen('gs://login-logs/logs.txt','a');
+  $handle = fopen('gs://login-logs/logs.txt',"w");
   fwrite($handle,$file_content);
   fclose($handle);
 
